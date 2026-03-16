@@ -1,0 +1,95 @@
+:root {
+  --bg-1: #07111f;
+  --bg-2: #123352;
+  --panel: rgba(8, 18, 30, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --button-main: #74f0c9;
+  --button-alt: rgba(255, 255, 255, 0.1);
+  --text: #eef8ff;
+  font-family: "Space Grotesk", "Noto Sans JP", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(116, 240, 201, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(123, 166, 255, 0.22), transparent 30%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+}
+
+body {
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+button {
+  min-width: 104px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--button-main);
+  color: #06201f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:last-child {
+  background: var(--button-alt);
+  color: var(--text);
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .controls {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    justify-content: space-between;
+  }
+
+  button {
+    flex: 1;
+    min-width: 0;
+  }
+}
